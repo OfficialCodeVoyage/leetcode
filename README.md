@@ -35,9 +35,9 @@ The solutions are organized numerically by problem number and name, correspondin
 
 ```
 leetcode/
-├── 1.TwoSum/
+├── 1_TwoSum/
 │   └── solution.py
-├── 2.AddTwoNumbers/
+├── 2_AddTwoNumbers/
 │   └── solution.py
 ```
 
