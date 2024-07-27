@@ -26,20 +26,43 @@ def sellstock(prices):
     # profit = max_val - price_to_buy
     # return profit
 
-    counter = max(prices)
-    postocut = min(prices)
-    pos = 0
-    for i, price in enumerate(prices):
-        if price == postocut:
-            pos = i
-    newlist = prices[pos:]
-    max_val = max(newlist)
-    profit = max_val - postocut
-    return profit
+    # counter = max(prices)
+    # postocut = min(prices)
+    # pos = 0
+    # for i, price in enumerate(prices):
+    #     if price == postocut:
+    #         pos = i
+    # newlist = prices[pos:]
+    # max_val = max(newlist)
+    # profit = max_val - postocut
+    # return profit
+
+    #using 2 pointers approach
+    max_profit = 0
+    lenght_list = len(prices)
+    pointer1 = 0
+    pointer2 = 1
+
+    while pointer2 < lenght_list:
+        if prices[pointer1] > prices[pointer2]:
+            pointer1 = pointer2
+
+        else:
+            check_profit = prices[pointer2] - prices[pointer1]
+            if check_profit > max_profit:
+                max_profit = check_profit
+        pointer2 += 1
+
+
+    return max_profit
 
 
 # prices = [7,1,5,3,6,4]
+#
+# prices = [7, 6, 4, 3, 1]
 
-prices = [7, 6, 4, 3, 1]
+prices = [2, 1, 4]
+
+#prices = [2, 4, 1]
 
 print(sellstock(prices))
