@@ -19,26 +19,17 @@ s, t = "bb", "ahbgcd"
 
 
 def check(s, t) -> bool:
-    list1 = [i for i in s] # b b
+    list1 = [i for i in s] # b g
     list2 = [i for i in t] # a h b g c d
 
     po1, po2 = 0, 0
-    stop = list2[-1]
 
-    if len(list1) == 0:
-        return False
-
-    while po1 < len(list1):
+    while po1 < len(s) and po2 < len(t):
         if list1[po1] == list2[po2]:
             po1 += 1
-
-        elif list2[po2] == stop:
-            return False
         po2 += 1
 
-    return True
-
-
+    return po1 == len(list1)
 
 
 print(check(s, t))

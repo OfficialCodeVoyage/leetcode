@@ -39,29 +39,30 @@
 s = "LII"
 
 greeksymbols = {
-    "I" : 1,
-    "V" : 5,
-    "X" : 10,
-    "L" : 50
-          }
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50
+}
 
 
-def RtoI(roman) -> int:
-    listnumbers = [i for i in roman]
+def RtoI(s) -> int:
+    listnumbers = [i for i in s]
     sum = 0
     pointer1, pointer2 = 0, 1
 
-    while pointer1 < (len(listnumbers) - 1):
+    for i in range(len(s) - 1):
         current_val = greeksymbols[listnumbers[pointer1]]
         next_val = greeksymbols[listnumbers[pointer2]]
-        if int(current_val) < int(next_val):
-            sum -= int(next_val) - int(current_val)
-            pointer1 += 2
-            pointer2 += 2
-        else:
-            sum += int(current_val)
+        if current_val < next_val:
+            sum -= current_val
             pointer1 += 1
             pointer2 += 1
+        else:
+            sum += current_val
+            pointer1 += 1
+            pointer2 += 1
+
 
     if pointer1 == len(listnumbers) - 1:
         sum += greeksymbols[listnumbers[pointer1]]
