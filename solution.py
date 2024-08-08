@@ -53,13 +53,25 @@ def threesum(nums):
     left, right = i+1, len(nums)-1
     arr = []
 
-    while i < len(nums) - 2:
-        if nums[i] + nums[left] + nums[right] == 0:
-            res = [nums[i], nums[left], nums[right]]
-            arr.append(res)
-        i += 1
-        left += 1
-        right -= 1
+    # while i < len(nums) - 2:
+    #     if nums[i] + nums[left] + nums[right] == 0:
+    #         res = [nums[i], nums[left], nums[right]]
+    #         arr.append(res)
+    #     i += 1
+    #     left += 1
+    #     right -= 1
+
+    for i in nums:
+        for j in nums:
+                if nums[i] + nums[left] + nums[right] == 0:
+                    res = [nums[i], nums[left], nums[right]]
+                    arr.append(res)
+                    i += 1
+                    left += 1
+                    right -= 1
+
+
+
 
 
 
