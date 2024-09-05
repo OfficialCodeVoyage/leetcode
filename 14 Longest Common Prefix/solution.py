@@ -15,25 +15,24 @@
 # Explanation: There is no common prefix among the input strings.
 #
 #
-strs = ["flower", "flow", "flight"]
+strs = ["flower", "flow", "floight"]
 
 
 # strs = ["dog","racecar","car"]
 
 def longest(strs) -> str:
-    str_answer = ''
+    prefix = strs[0]  #flower
+    answer = ""
     po1 = 0
-    lenght = len(strs)
-    m = min(len(s) for s in strs)
 
-    while po1 < m:
-        store = ''
-        for i in strs:
-            if strs[i][po1] != strs[0][po1]:
-                break
-            else:
-                str_answer += strs[i][po1]
+    for i in prefix:
+        for j in range(1, len(strs)):
+            if po1 >= len(strs[j]) or i != strs[j][po1]:
+                return answer
+        answer += i
         po1 += 1
+
+    return answer
 
 
 print(longest(strs))
